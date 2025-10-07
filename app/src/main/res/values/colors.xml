@@ -81,4 +81,9 @@
     <color name="switch_thumb_unchecked">#FFCCCCCC</color>
     <color name="switch_track_checked">#FFE8EAFF</color>
     <color name="switch_track_unchecked">#FFEEEEEE</color>
+    
+    <!-- Water Tank Colors -->
+    <color name="water_gradient_start">#FF0EA5E9</color>
+    <color name="water_gradient_end">#FF6366F1</color>
+    <color name="water_tank_border">#FFBDBDBD</color>
 </resources>

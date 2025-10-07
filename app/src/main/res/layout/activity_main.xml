@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bottom_nav_background"
             android:elevation="12dp"
-            android:paddingTop="12dp"
+            android:paddingTop="8dp"
             android:paddingBottom="8dp"
             app:itemIconTint="@color/nav_item_color"
             app:itemTextColor="@color/nav_item_color"
@@ -57,9 +57,11 @@
             app:menu="@menu/bottom_navigation_menu"
             app:labelVisibilityMode="labeled"
             app:itemActiveIndicatorStyle="@null"
-            app:itemIconSize="26dp"
-            app:itemPaddingTop="4dp"
-            app:itemPaddingBottom="4dp" />
+            app:itemIconSize="24dp"
+            app:itemPaddingTop="2dp"
+            app:itemPaddingBottom="2dp"
+            app:itemTextAppearanceActive="@style/BottomNavTextStyle"
+            app:itemTextAppearanceInactive="@style/BottomNavTextStyle" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

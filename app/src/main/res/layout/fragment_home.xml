@@ -17,7 +17,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/surface"
+            android:background="@android:color/transparent"
             app:elevation="0dp">
 
             <com.google.android.material.appbar.MaterialToolbar
@@ -27,7 +27,7 @@
                 android:paddingStart="@dimen/spacing_large"
                 android:paddingEnd="@dimen/spacing_large"
                 app:title="Home"
-                app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall"
+                app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineMedium"
                 app:titleTextColor="@color/text_primary"
                 app:titleCentered="true" />
 
@@ -37,40 +37,44 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="@dimen/spacing_large">
+            android:paddingStart="@dimen/spacing_medium"
+            android:paddingEnd="@dimen/spacing_medium"
+            android:paddingBottom="@dimen/spacing_large">
 
             <!-- Welcome Card -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="@dimen/card_elevation_medium"
-                app:cardBackgroundColor="@color/card_habit"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/primary"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="@dimen/spacing_large">
+                    android:padding="24dp">
 
                     <TextView
                         android:id="@+id/tv_welcome"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Welcome back!"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/text_size_headline_small"
+                        android:textColor="@color/white"
+                        android:textSize="28sp"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_small"
-                        android:textColor="@color/text_secondary"
-                        android:textSize="@dimen/text_size_body_medium"
+                        android:layout_marginTop="8dp"
+                        android:textColor="@color/white"
+                        android:alpha="0.9"
+                        android:textSize="15sp"
                         tools:text="Monday, January 1, 2024" />
 
                 </LinearLayout>
@@ -82,10 +86,10 @@
                 android:id="@+id/card_habits"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="@dimen/card_elevation_medium"
-                app:cardBackgroundColor="@color/card_habit"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/white"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -136,10 +140,10 @@
                 android:id="@+id/card_mood"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="@dimen/card_elevation_medium"
-                app:cardBackgroundColor="@color/card_mood"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/white"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -190,10 +194,10 @@
                 android:id="@+id/card_hydration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="@dimen/card_elevation_medium"
-                app:cardBackgroundColor="@color/card_hydration"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/white"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -243,10 +247,10 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="@dimen/card_elevation_medium"
-                app:cardBackgroundColor="@color/card_stats"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/white"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -365,10 +369,10 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/spacing_large"
-                app:cardCornerRadius="@dimen/card_corner_radius_large"
-                app:cardElevation="@dimen/card_elevation_medium"
-                app:cardBackgroundColor="@color/card_habit"
+                android:layout_marginBottom="@dimen/spacing_medium"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp"
+                app:cardBackgroundColor="@color/surface_variant"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -377,14 +381,28 @@
                     android:orientation="vertical"
                     android:padding="@dimen/spacing_large">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/daily_tip"
-                        android:textColor="@color/text_primary"
-                        android:textSize="@dimen/text_size_body_medium"
-                        android:textStyle="bold"
-                        android:layout_marginBottom="@dimen/spacing_small" />
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginBottom="@dimen/spacing_small">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💡 "
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/daily_tip"
+                            android:textColor="@color/text_primary"
+                            android:textSize="@dimen/text_size_body_medium"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
 
                     <TextView
                         android:id="@+id/tv_daily_tip"

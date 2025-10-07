@@ -15,7 +15,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
@@ -31,6 +30,7 @@ import com.example.SoulFlow.data.models.HydrationSettings
 import com.example.SoulFlow.data.repository.SharedPreferencesManager
 import com.example.SoulFlow.receivers.HydrationAlarmScheduler
 import com.example.SoulFlow.ui.adapters.HydrationHistoryAdapter
+import com.example.SoulFlow.ui.views.WaterTankView
 import com.google.android.material.button.MaterialButton
 import com.google.android.material.textfield.TextInputEditText
 import java.text.SimpleDateFormat
@@ -44,7 +44,7 @@ class HydrationFragment : Fragment() {
     private lateinit var tvDailyGoal: TextView
     private lateinit var tvCurrentIntake: TextView
     private lateinit var tvProgressText: TextView
-    private lateinit var progressBarHydration: ProgressBar
+    private lateinit var waterTankView: WaterTankView
     private lateinit var btnAddWater: MaterialButton
     private lateinit var btnSetReminder: MaterialButton
     private lateinit var recyclerHydrationHistory: RecyclerView
@@ -81,7 +81,7 @@ class HydrationFragment : Fragment() {
         tvDailyGoal = view.findViewById(R.id.tv_daily_goal)
         tvCurrentIntake = view.findViewById(R.id.tv_current_intake)
         tvProgressText = view.findViewById(R.id.tv_progress_text)
-        progressBarHydration = view.findViewById(R.id.progress_bar_hydration)
+        waterTankView = view.findViewById(R.id.water_tank_view)
         btnAddWater = view.findViewById(R.id.btn_add_water)
         btnSetReminder = view.findViewById(R.id.btn_set_reminder)
         recyclerHydrationHistory = view.findViewById(R.id.recycler_hydration_history)
@@ -123,7 +123,8 @@ class HydrationFragment : Fragment() {
             0
         }
         
-        progressBarHydration.progress = progressPercentage
+        // Update water tank with smooth animation
+        waterTankView.setProgress(progressPercentage.toFloat(), animate = true)
         tvProgressText.text = "$progressPercentage% of daily goal"
         
         // Update history
