@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="300dp"
+    android:viewportWidth="300"
+    android:viewportHeight="300">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="#FFE8EAFF"
+        android:pathData="M150,30 a120,120 0 1,1 0,240 a120,120 0 1,1 0,-240" />
+    
+    <!-- Main wellness symbol - heart shape -->
+    <path
+        android:fillColor="#FF4CAF50"
+        android:pathData="M150,180 C130,160 100,140 100,110 C100,90 115,75 135,75 C145,75 150,80 150,80 C150,80 155,75 165,75 C185,75 200,90 200,110 C200,140 170,160 150,180 Z" />
+    
+    <!-- Decorative leaves -->
+    <path
+        android:fillColor="#FF81C784"
+        android:pathData="M120,120 Q110,110 120,100 Q130,110 120,120 Z" />
+    <path
+        android:fillColor="#FF81C784"
+        android:pathData="M180,120 Q190,110 180,100 Q170,110 180,120 Z" />
+    
+    <!-- Flow lines -->
+    <path
+        android:pathData="M80,150 Q120,130 160,150 Q200,170 240,150"
+        android:strokeWidth="3"
+        android:strokeColor="#FF6366F1" />
+    
+    <!-- Small circles for flow -->
+    <path
+        android:fillColor="#FFEC4899"
+        android:pathData="M90,141 a4,4 0 1,1 0,8 a4,4 0 1,1 0,-8" />
+    <path
+        android:fillColor="#FFEC4899"
+        android:pathData="M210,151 a4,4 0 1,1 0,8 a4,4 0 1,1 0,-8" />
+    <path
+        android:fillColor="#FF8B5CF6"
+        android:pathData="M150,137 a3,3 0 1,1 0,6 a3,3 0 1,1 0,-6" />
+</vector>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="300dp"
+    android:viewportWidth="300"
+    android:viewportHeight="300">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="#FFF0F1FF"
+        android:pathData="M150,50 a100,100 0 1,1 0,200 a100,100 0 1,1 0,-200" />
+    
+    <!-- Heart rate monitor -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M90,110 L210,110 Q220,110 220,120 L220,200 Q220,210 210,210 L90,210 Q80,210 80,200 L80,120 Q80,110 90,110 Z"
+        android:strokeColor="#FF6366F1"
+        android:strokeWidth="3" />
+    
+    <!-- Screen display -->
+    <path
+        android:fillColor="#FFE8EAFF"
+        android:pathData="M95,125 L205,125 L205,180 L95,180 Z" />
+    
+    <!-- Heart rate line -->
+    <path
+        android:fillColor="@android:color/transparent"
+        android:pathData="M100,155 L120,155 L130,140 L140,170 L150,145 L160,155 L200,155"
+        android:strokeColor="#FFEC4899"
+        android:strokeWidth="4"
+        android:strokeLineCap="round" />
+    
+    <!-- Heart icon -->
+    <path
+        android:fillColor="#FFEC4899"
+        android:pathData="M150,125 Q145,120 140,120 Q135,120 133,125 Q133,130 140,137 L150,145 L160,137 Q167,130 167,125 Q165,120 160,120 Q155,120 150,125 Z" />
+    
+    <!-- Stats numbers -->
+    <path
+        android:fillColor="#FF6366F1"
+        android:pathData="M110,195 L115,195 L115,205 L110,205 Z M115,195 L115,190 M125,195 Q125,190 130,190 Q135,190 135,195 Q135,200 130,200 Q125,200 125,205 L135,205" />
+    
+    <!-- Wellness/activity icons around -->
+    <!-- Water drop -->
+    <path
+        android:fillColor="#FF0EA5E9"
+        android:pathData="M70,150 Q70,140 75,135 L80,130 L85,135 Q90,140 90,150 Q90,160 80,165 Q70,160 70,150 Z" />
+    
+    <!-- Apple/health -->
+    <path
+        android:fillColor="#FF10B981"
+        android:pathData="M220,145 Q215,140 210,145 Q210,155 220,165 Q230,155 230,145 Q225,140 220,145 Z M220,138 L222,135" />
+    
+    <!-- Moon/sleep -->
+    <path
+        android:fillColor="#FF8B5CF6"
+        android:pathData="M70,90 Q65,95 65,105 Q65,115 70,120 Q75,118 78,113 Q80,108 80,103 Q80,98 78,93 Q75,88 70,90 Z" />
+    
+    <!-- Sparkle effects -->
+    <path
+        android:fillColor="#FFFFD700"
+        android:pathData="M225,95 L227,97 L225,99 L223,97 Z M85,220 L87,222 L85,224 L83,222 Z M215,220 L217,222 L215,224 L213,222 Z" />
+</vector>

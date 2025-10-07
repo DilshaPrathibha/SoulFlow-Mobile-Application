@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="300dp"
+    android:height="300dp"
+    android:viewportWidth="300"
+    android:viewportHeight="300">
+    
+    <!-- Background circle -->
+    <path
+        android:fillColor="#FFDEE5FF"
+        android:pathData="M150,50 a100,100 0 1,1 0,200 a100,100 0 1,1 0,-200" />
+    
+    <!-- Checklist board -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M100,80 L200,80 L200,220 L100,220 Z"
+        android:strokeColor="#FF6366F1"
+        android:strokeWidth="3" />
+    
+    <!-- Checklist items - check 1 -->
+    <path
+        android:fillColor="#FF10B981"
+        android:pathData="M115,105 L120,110 L130,95" 
+        android:strokeColor="#FF10B981"
+        android:strokeWidth="4"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#FFE8EAFF"
+        android:pathData="M140,100 L185,100 L185,110 L140,110 Z" />
+    
+    <!-- Checklist items - check 2 -->
+    <path
+        android:fillColor="#FF10B981"
+        android:pathData="M115,135 L120,140 L130,125"
+        android:strokeColor="#FF10B981"
+        android:strokeWidth="4"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#FFE8EAFF"
+        android:pathData="M140,130 L185,130 L185,140 L140,140 Z" />
+    
+    <!-- Checklist items - check 3 -->
+    <path
+        android:fillColor="#FF10B981"
+        android:pathData="M115,165 L120,170 L130,155"
+        android:strokeColor="#FF10B981"
+        android:strokeWidth="4"
+        android:strokeLineCap="round" />
+    <path
+        android:fillColor="#FFE8EAFF"
+        android:pathData="M140,160 L185,160 L185,170 L140,170 Z" />
+    
+    <!-- Checklist items - unchecked -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M110,185 L125,185 L125,200 L110,200 Z"
+        android:strokeColor="#FFD0D5DD"
+        android:strokeWidth="2" />
+    <path
+        android:fillColor="#FFF1F5F9"
+        android:pathData="M140,190 L185,190 L185,200 L140,200 Z" />
+    
+    <!-- Trophy/success icon -->
+    <path
+        android:fillColor="#FFEC4899"
+        android:pathData="M145,50 L155,50 L155,65 Q160,70 160,75 L140,75 Q140,70 145,65 Z M148,75 L152,75 L152,80 L148,80 Z M145,80 L155,80 L155,85 L145,85 Z" />
+    
+    <!-- Stars -->
+    <path
+        android:fillColor="#FFFFD700"
+        android:pathData="M85,110 L87,115 L92,115 L88,118 L90,123 L85,120 L80,123 L82,118 L78,115 L83,115 Z M210,140 L212,145 L217,145 L213,148 L215,153 L210,150 L205,153 L207,148 L203,145 L208,145 Z" />
+</vector>
