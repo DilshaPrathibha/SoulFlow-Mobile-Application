@@ -14,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.SoulFlow.data.repository.SharedPreferencesManager
 import com.example.SoulFlow.receivers.HydrationAlarmScheduler
+import com.example.SoulFlow.sensors.SensorManager
 import com.example.SoulFlow.ui.auth.LoginActivity
 import com.example.SoulFlow.ui.fragments.HomeFragment
 import com.example.SoulFlow.ui.fragments.HabitsFragment
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var navigationView: NavigationView
     private lateinit var menuButton: FloatingActionButton
     private lateinit var prefsManager: SharedPreferencesManager
+    private lateinit var sensorManager: SensorManager
     
     // Permission request code
     private val PERMISSION_REQUEST_CODE = 1001
@@ -63,6 +65,9 @@ class MainActivity : AppCompatActivity() {
         // Set up window insets for proper layout handling
         setupWindowInsets()
         
+        // Setup shake detection
+        setupShakeDetection()
+        
         // Load default fragment
         if (savedInstanceState == null) {
             loadFragment(HomeFragment())
@@ -85,10 +90,12 @@ class MainActivity : AppCompatActivity() {
     
     override fun onResume() {
         super.onResume()
+        sensorManager.startListening()
     }
     
     override fun onPause() {
         super.onPause()
+        sensorManager.stopListening()
     }
     
     private fun setupBottomNavigation() {
@@ -213,6 +220,17 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+    }
+    
+    private fun setupShakeDetection() {
+        sensorManager = SensorManager(this)
+        sensorManager.setOnShakeDetectedListener {
+            // Navigate to mood page when shake is detected
+            runOnUiThread {
+                bottomNavigation.selectedItemId = R.id.nav_mood
+                loadFragment(MoodFragment())
+            }
         }
     }
     
