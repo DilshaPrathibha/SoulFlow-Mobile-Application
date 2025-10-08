@@ -4,43 +4,27 @@
     android:viewportWidth="108"
     android:viewportHeight="108">
     
-    <!-- Meditation/Mindfulness person silhouette -->
+    <!-- Human Head (Circle) -->
     <path
         android:fillColor="#FFFFFF"
-        android:pathData="M54,30 a8,8 0 1,1 0,16 a8,8 0 1,1 0,-16" />
+        android:pathData="M54,28 a12,12 0 1,1 0,24 a12,12 0 1,1 0,-24" />
     
-    <!-- Body in meditation pose -->
+    <!-- Simple smile -->
     <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M54,46 L50,60 L46,70 L46,75 L50,75 L50,70 L54,58 L58,70 L58,75 L62,75 L62,70 L58,60 L54,46 Z" />
-    
-    <!-- Arms in meditation position -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:pathData="M42,52 L38,58 L36,60 L38,62 L42,56 Z M66,52 L70,58 L72,60 L70,62 L66,56 Z" />
-    
-    <!-- Lotus petals/Chakra symbol above -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:fillAlpha="0.8"
-        android:pathData="M48,25 Q44,20 48,18 Q52,20 48,25 Z M60,25 Q64,20 60,18 Q56,20 60,25 Z M54,20 Q52,15 54,13 Q56,15 54,20 Z" />
-    
-    <!-- Energy flow lines -->
-    <path
-        android:fillColor="#FFFFFF"
-        android:fillAlpha="0.6"
-        android:pathData="M30,54 Q45,50 60,54 Q75,58 90,54"
+        android:fillColor="@android:color/transparent"
+        android:strokeColor="#6366F1"
         android:strokeWidth="1.5"
-        android:strokeColor="#FFFFFF"
-        android:strokeAlpha="0.6" />
+        android:strokeLineCap="round"
+        android:pathData="M48,44 Q54,47 60,44" />
     
-    <!-- Small energy dots -->
+    <!-- Large White Heart -->
     <path
         android:fillColor="#FFFFFF"
-        android:fillAlpha="0.7"
-        android:pathData="M35,52 a1.5,1.5 0 1,1 0,3 a1.5,1.5 0 1,1 0,-3" />
+        android:pathData="M54,52 C54,52 42,48 38,54 C34,60 38,68 54,80 C70,68 74,60 70,54 C66,48 54,52 54,52 Z" />
+    
+    <!-- Heart Inner Highlight for depth -->
     <path
         android:fillColor="#FFFFFF"
-        android:fillAlpha="0.7"
-        android:pathData="M73,56 a1.5,1.5 0 1,1 0,3 a1.5,1.5 0 1,1 0,-3" />
+        android:fillAlpha="0.3"
+        android:pathData="M54,55 C54,55 46,52 43,56 C40,60 43,66 54,75 C65,66 68,60 65,56 C62,52 54,55 54,55 Z" />
 </vector>

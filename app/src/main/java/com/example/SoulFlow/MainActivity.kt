@@ -114,18 +114,98 @@ class MainActivity : AppCompatActivity() {
             drawerLayout.open()
         }
         
+        // Set logout item icon color to red
+        val logoutItem = navigationView.menu.findItem(R.id.nav_logout)
+        logoutItem?.let {
+            it.icon?.setTint(ContextCompat.getColor(this, R.color.error_red))
+        }
+        
         // Setup navigation view item selection
         navigationView.setNavigationItemSelectedListener { item ->
             when (item.itemId) {
+                // Main Navigation
+                R.id.nav_drawer_home -> {
+                    bottomNavigation.selectedItemId = R.id.nav_home
+                    loadFragment(HomeFragment())
+                }
+                R.id.nav_drawer_habits -> {
+                    bottomNavigation.selectedItemId = R.id.nav_habits
+                    loadFragment(HabitsFragment())
+                }
+                R.id.nav_drawer_mood -> {
+                    bottomNavigation.selectedItemId = R.id.nav_mood
+                    loadFragment(MoodFragment())
+                }
+                R.id.nav_drawer_hydration -> {
+                    bottomNavigation.selectedItemId = R.id.nav_hydration
+                    loadFragment(HydrationFragment())
+                }
+                
+                // Settings & Preferences
                 R.id.nav_settings -> {
                     loadFragment(SettingsFragment())
                     // Unselect all bottom navigation items
                     bottomNavigation.menu.findItem(bottomNavigation.selectedItemId)?.isChecked = false
                 }
+                
+                // Information & Help
+                R.id.nav_about -> {
+                    showAboutDialog()
+                }
+                R.id.nav_share -> {
+                    shareApp()
+                }
+                
+                // Account
+                R.id.nav_logout -> {
+                    showLogoutConfirmation()
+                }
             }
             drawerLayout.close()
             true
         }
+    }
+    
+    private fun showAboutDialog() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle(getString(R.string.about))
+            .setMessage(getString(R.string.about_description))
+            .setPositiveButton("OK", null)
+            .show()
+    }
+    
+    private fun shareApp() {
+        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, "Check out SoulFlow!")
+            putExtra(
+                Intent.EXTRA_TEXT,
+                "Track your wellness journey with SoulFlow - Habits, Mood & Hydration tracker!\n\nDownload now: https://play.google.com/store/"
+            )
+        }
+        startActivity(Intent.createChooser(shareIntent, "Share SoulFlow via"))
+    }
+    
+    private fun showLogoutConfirmation() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Logout")
+            .setMessage("Are you sure you want to logout?")
+            .setPositiveButton("Logout") { _, _ ->
+                logout()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+    
+    private fun logout() {
+        // Clear user login status
+        prefsManager.setUserLoggedIn(false)
+        
+        // Navigate to login screen
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
     
     private fun setupWindowInsets() {

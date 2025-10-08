@@ -41,14 +41,14 @@
             android:paddingEnd="@dimen/spacing_medium"
             android:paddingBottom="@dimen/spacing_large">
 
-            <!-- Welcome Card -->
+            <!-- Welcome Card with Gradient -->
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/spacing_small"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardCornerRadius="20dp"
-                app:cardElevation="2dp"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="8dp"
                 app:cardBackgroundColor="@color/primary"
                 app:strokeWidth="0dp">
 
@@ -56,7 +56,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:padding="24dp">
+                    android:padding="28dp"
+                    android:background="@drawable/gradient_primary">
 
                     <TextView
                         android:id="@+id/tv_welcome"
@@ -64,8 +65,9 @@
                         android:layout_height="wrap_content"
                         android:text="Welcome back!"
                         android:textColor="@color/white"
-                        android:textSize="28sp"
-                        android:textStyle="bold" />
+                        android:textSize="32sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="-0.02" />
 
                     <TextView
                         android:id="@+id/tv_date"
@@ -73,8 +75,9 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
                         android:textColor="@color/white"
-                        android:alpha="0.9"
-                        android:textSize="15sp"
+                        android:alpha="0.95"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
                         tools:text="Monday, January 1, 2024" />
 
                 </LinearLayout>
@@ -87,9 +90,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="1dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_habit"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -113,12 +116,22 @@
                             android:textSize="@dimen/text_size_title_large"
                             android:textStyle="bold" />
 
-                        <ImageView
-                            android:layout_width="@dimen/icon_size_large"
-                            android:layout_height="@dimen/icon_size_large"
-                            android:src="@drawable/ic_habits"
-                            android:contentDescription="@string/nav_habits"
-                            app:tint="@color/primary" />
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/primary">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_habits"
+                                android:contentDescription="@string/nav_habits"
+                                app:tint="@color/white" />
+
+                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
 
@@ -141,9 +154,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="1dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_mood"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -167,12 +180,22 @@
                             android:textSize="@dimen/text_size_title_large"
                             android:textStyle="bold" />
 
-                        <ImageView
-                            android:layout_width="@dimen/icon_size_large"
-                            android:layout_height="@dimen/icon_size_large"
-                            android:src="@drawable/ic_mood"
-                            android:contentDescription="@string/nav_mood"
-                            app:tint="@color/primary" />
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/secondary">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_mood"
+                                android:contentDescription="@string/nav_mood"
+                                app:tint="@color/white" />
+
+                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
 
@@ -195,9 +218,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="1dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_hydration"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -221,12 +244,22 @@
                             android:textSize="@dimen/text_size_title_large"
                             android:textStyle="bold" />
 
-                        <ImageView
-                            android:layout_width="@dimen/icon_size_large"
-                            android:layout_height="@dimen/icon_size_large"
-                            android:src="@drawable/ic_hydration"
-                            android:contentDescription="@string/nav_hydration"
-                            app:tint="@color/primary" />
+                        <com.google.android.material.card.MaterialCardView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            app:cardCornerRadius="12dp"
+                            app:cardElevation="0dp"
+                            app:cardBackgroundColor="@color/accent_blue">
+
+                            <ImageView
+                                android:layout_width="28dp"
+                                android:layout_height="28dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_hydration"
+                                android:contentDescription="@string/nav_hydration"
+                                app:tint="@color/white" />
+
+                        </com.google.android.material.card.MaterialCardView>
 
                     </LinearLayout>
 
@@ -248,9 +281,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="1dp"
-                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/card_stats"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -290,16 +323,18 @@
                                 android:layout_height="wrap_content"
                                 android:text="0"
                                 android:textColor="@color/primary"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/total_habits"
                                 android:textColor="@color/text_secondary"
-                                android:textSize="@dimen/text_size_body_small"
-                                android:layout_marginTop="4dp" />
+                                android:textSize="12sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:layout_marginTop="6dp" />
 
                         </LinearLayout>
 
@@ -317,17 +352,19 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textColor="@color/primary"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
+                                android:textColor="@color/secondary"
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/mood_entries"
                                 android:textColor="@color/text_secondary"
-                                android:textSize="@dimen/text_size_body_small"
-                                android:layout_marginTop="4dp" />
+                                android:textSize="12sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:layout_marginTop="6dp" />
 
                         </LinearLayout>
 
@@ -345,17 +382,19 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="0"
-                                android:textColor="@color/primary"
-                                android:textSize="24sp"
-                                android:textStyle="bold" />
+                                android:textColor="@color/accent_green"
+                                android:textSize="32sp"
+                                android:textStyle="bold"
+                                android:fontFamily="sans-serif-black" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="@string/day_streak"
                                 android:textColor="@color/text_secondary"
-                                android:textSize="@dimen/text_size_body_small"
-                                android:layout_marginTop="4dp" />
+                                android:textSize="12sp"
+                                android:fontFamily="sans-serif-medium"
+                                android:layout_marginTop="6dp" />
 
                         </LinearLayout>
 
@@ -370,9 +409,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/spacing_medium"
-                app:cardCornerRadius="16dp"
-                app:cardElevation="1dp"
-                app:cardBackgroundColor="@color/surface_variant"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/primary_green_light"
                 app:strokeWidth="0dp">
 
                 <LinearLayout
@@ -392,15 +431,16 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="💡 "
-                            android:textSize="18sp" />
+                            android:textSize="22sp" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/daily_tip"
-                            android:textColor="@color/text_primary"
+                            android:textColor="@color/primary_green"
                             android:textSize="@dimen/text_size_body_medium"
-                            android:textStyle="bold" />
+                            android:textStyle="bold"
+                            android:fontFamily="sans-serif-medium" />
 
                     </LinearLayout>
 
@@ -409,7 +449,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/tip_consistency"
-                        android:textColor="@color/text_secondary"
+                        android:textColor="@color/text_primary"
                         android:textSize="@dimen/text_size_body_medium"
                         android:lineSpacingExtra="4dp" />
 

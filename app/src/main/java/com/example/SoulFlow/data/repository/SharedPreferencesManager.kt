@@ -422,6 +422,14 @@ class SharedPreferencesManager(context: Context) {
     fun getUserEmail(): String {
         return sharedPrefs.getString(KEY_USER_EMAIL, "") ?: ""
     }
+    
+    fun updateUserName(newName: String) {
+        sharedPrefs.edit().putString(KEY_USER_NAME, newName).apply()
+    }
+    
+    fun updateUserEmail(newEmail: String) {
+        sharedPrefs.edit().putString(KEY_USER_EMAIL, newEmail).apply()
+    }
 
     // AUTH MANAGEMENT
     fun isUserRegistered(): Boolean {

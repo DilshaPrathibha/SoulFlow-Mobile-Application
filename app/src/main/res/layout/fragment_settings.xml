@@ -148,7 +148,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_dark_mode"
-                            app:tint="@color/text_primary" />
+                            app:tint="@color/primary" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -310,7 +310,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_hydration"
-                            app:tint="@color/text_primary" />
+                            app:tint="@color/primary" />
 
                         <LinearLayout
                             android:layout_width="0dp"
@@ -360,7 +360,7 @@
                             android:layout_width="24dp"
                             android:layout_height="24dp"
                             android:src="@drawable/ic_info"
-                            app:tint="@color/text_primary" />
+                            app:tint="@color/primary" />
 
                         <LinearLayout
                             android:layout_width="0dp"

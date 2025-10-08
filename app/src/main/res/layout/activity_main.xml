@@ -47,8 +47,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/bottom_nav_background"
             android:elevation="12dp"
-            android:paddingTop="8dp"
-            android:paddingBottom="8dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="5dp"
             app:itemIconTint="@color/nav_item_color"
             app:itemTextColor="@color/nav_item_color"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -57,9 +57,9 @@
             app:menu="@menu/bottom_navigation_menu"
             app:labelVisibilityMode="labeled"
             app:itemActiveIndicatorStyle="@null"
-            app:itemIconSize="24dp"
-            app:itemPaddingTop="2dp"
-            app:itemPaddingBottom="2dp"
+            app:itemIconSize="29dp"
+            app:itemPaddingTop="20dp"
+            app:itemPaddingBottom="4dp"
             app:itemTextAppearanceActive="@style/BottomNavTextStyle"
             app:itemTextAppearanceInactive="@style/BottomNavTextStyle" />
 
