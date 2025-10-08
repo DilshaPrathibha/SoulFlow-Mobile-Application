@@ -252,16 +252,6 @@
                         android:textSize="@dimen/text_size_headline_small"
                         android:textStyle="bold" />
 
-                    <com.google.android.material.tabs.TabLayout
-                        android:id="@+id/tab_layout_mood_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        app:tabTextColor="@color/text_secondary"
-                        app:tabSelectedTextColor="@color/primary"
-                        app:tabIndicatorColor="@color/primary"
-                        app:tabIndicatorHeight="3dp"
-                        app:tabTextAppearance="@style/TextAppearance.Material3.BodyMedium" />
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/recycler_mood_history"
@@ -272,14 +262,6 @@
                         tools:itemCount="3"
                         tools:listitem="@layout/item_mood_history" />
 
-                    <!-- Calendar View -->
-                    <ScrollView
-                        android:id="@+id/layout_mood_calendar"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/spacing_medium"
-                        android:visibility="gone"
-                        tools:visibility="gone" />
 
                     <!-- Empty State -->
                     <LinearLayout

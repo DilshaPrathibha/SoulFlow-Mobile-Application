@@ -45,7 +45,7 @@ class HabitProgressWidget : AppWidgetProvider() {
             val prefsManager = SharedPreferencesManager.getInstance(context)
             val habits = prefsManager.getHabits()
             val today = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(Date())
-            
+
             // Calculate completion statistics
             val completedCount = if (habits.isNotEmpty()) {
                 habits.count { habit ->
@@ -55,29 +55,39 @@ class HabitProgressWidget : AppWidgetProvider() {
             } else {
                 0
             }
-            
+
             val totalCount = habits.size
-            val progressPercentage = if (totalCount > 0) {
+            val rawPercentage = if (totalCount > 0) {
                 ((completedCount.toFloat() / totalCount.toFloat()) * 100).toInt()
             } else {
                 0
             }
+            val progressPercentage = rawPercentage.coerceIn(0, 100)
 
             // Construct the RemoteViews object
             val views = RemoteViews(context.packageName, R.layout.widget_habit_progress)
-            
+
             // Update widget content
             views.setTextViewText(R.id.widget_title, context.getString(R.string.widget_title))
             views.setTextViewText(
                 R.id.widget_progress_text,
                 context.getString(R.string.widget_habits_completed, completedCount, totalCount)
             )
-            views.setTextViewText(
-                R.id.widget_progress_percentage,
-                "$progressPercentage%"
-            )
+            views.setTextViewText(R.id.widget_progress_percentage, "${progressPercentage}%")
+            val captionRes = if (progressPercentage >= 100) {
+                R.string.widget_caption_complete
+            } else {
+                R.string.widget_caption_in_progress
+            }
+            val motivationRes = if (progressPercentage >= 100) {
+                R.string.widget_motivation_complete
+            } else {
+                R.string.widget_motivation_keep_going
+            }
+            views.setTextViewText(R.id.widget_progress_caption, context.getString(captionRes))
+            views.setTextViewText(R.id.widget_motivation, context.getString(motivationRes))
             views.setProgressBar(R.id.widget_progress_bar, 100, progressPercentage, false)
-            
+
             // Set up click intent to open the app
             val intent = Intent(context, MainActivity::class.java).apply {
                 flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK

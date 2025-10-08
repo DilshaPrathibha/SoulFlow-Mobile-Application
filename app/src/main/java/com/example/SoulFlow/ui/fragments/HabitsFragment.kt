@@ -32,9 +32,10 @@ class HabitsFragment : Fragment() {
     private lateinit var recyclerView: RecyclerView
     private lateinit var fabAddHabit: ExtendedFloatingActionButton
     private lateinit var tvProgressSummary: TextView
+    private lateinit var tvProgressPercentage: TextView
     private lateinit var progressBarDaily: ProgressBar
     private lateinit var layoutEmptyState: View
-    private lateinit var tvHabitCount: TextView  // Add this line
+    private lateinit var tvHabitCount: TextView
     private lateinit var prefsManager: SharedPreferencesManager
     private lateinit var habitsAdapter: HabitsAdapter
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
@@ -71,9 +72,10 @@ class HabitsFragment : Fragment() {
         recyclerView = view.findViewById(R.id.recycler_habits)
         fabAddHabit = view.findViewById(R.id.fab_add_habit)
         tvProgressSummary = view.findViewById(R.id.tv_progress_summary)
+        tvProgressPercentage = view.findViewById(R.id.tv_progress_percentage)
         progressBarDaily = view.findViewById(R.id.progress_bar_daily)
         layoutEmptyState = view.findViewById(R.id.layout_empty_state)
-        tvHabitCount = view.findViewById(R.id.tv_habit_count)  // Add this line
+        tvHabitCount = view.findViewById(R.id.tv_habit_count)
     }
     
     private fun setupRecyclerView() {
@@ -140,7 +142,9 @@ class HabitsFragment : Fragment() {
             0
         }
         
-        tvProgressSummary.text = "$completedCount of $totalCount habits completed ($progressPercentage%)"
+        tvProgressSummary.text = "$completedCount of $totalCount habits completed"
+        tvProgressPercentage.text = "$progressPercentage%"
+        tvHabitCount.text = "$totalCount"
         progressBarDaily.progress = progressPercentage
         
         habitsAdapter.updateHabits(habitsWithProgress)
