@@ -46,4 +46,10 @@
         <item name="cardElevation">@dimen/card_elevation_medium</item>
     </style>
     
+    <!-- Bottom Navigation Text Style -->
+    <style name="BottomNavTextStyle" parent="TextAppearance.Material3.LabelSmall">
+        <item name="android:textSize">11sp</item>
+        <item name="fontFamily">sans-serif-medium</item>
+    </style>
+    
 </resources>

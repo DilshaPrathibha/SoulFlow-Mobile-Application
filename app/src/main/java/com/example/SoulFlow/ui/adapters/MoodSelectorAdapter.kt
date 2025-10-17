@@ -56,7 +56,7 @@ class MoodSelectorAdapter(
 
             itemView.setOnClickListener {
                 val previousPosition = selectedPosition
-                selectedPosition = adapterPosition
+                selectedPosition = bindingAdapterPosition
                 
                 // Update the previous selected item
                 if (previousPosition != -1) {

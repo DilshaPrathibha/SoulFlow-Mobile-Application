@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <!-- Main Navigation -->
+    <group android:id="@+id/group_main" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_drawer_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/nav_home" />
+        
+        <item
+            android:id="@+id/nav_drawer_habits"
+            android:icon="@drawable/ic_habits"
+            android:title="@string/nav_habits" />
+        
+        <item
+            android:id="@+id/nav_drawer_mood"
+            android:icon="@drawable/ic_mood"
+            android:title="@string/nav_mood" />
+        
+        <item
+            android:id="@+id/nav_drawer_hydration"
+            android:icon="@drawable/ic_hydration"
+            android:title="@string/nav_hydration" />
+    </group>
+    
+    <!-- Settings & Preferences -->
+    <group>
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings"
+            android:title="@string/nav_settings" />
+    </group>
+    
+    <!-- Information & Help -->
+    <group android:id="@+id/group_info">
+        <item
+            android:id="@+id/nav_about"
+            android:icon="@drawable/ic_info"
+            android:title="@string/about" />
+        
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_share"
+            android:title="Share App" />
+    </group>
+    
+    <!-- Account -->
+    <group android:id="@+id/group_account">
+        <item
+            android:id="@+id/nav_logout"
+            android:icon="@drawable/ic_logout"
+            android:title="Logout" />
+    </group>
+    
+</menu>

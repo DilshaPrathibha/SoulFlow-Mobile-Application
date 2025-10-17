@@ -52,6 +52,7 @@ class HabitsAdapter(
         private val tvHabitDescription: TextView = itemView.findViewById(R.id.tv_habit_description)
         private val tvHabitTarget: TextView = itemView.findViewById(R.id.tv_habit_target)
         private val tvProgressText: TextView = itemView.findViewById(R.id.tv_progress_text)
+        private val tvProgressPercentage: TextView = itemView.findViewById(R.id.tv_progress_percentage)
         private val tvStreak: TextView = itemView.findViewById(R.id.tv_streak)
         private val progressBar: ProgressBar = itemView.findViewById(R.id.progress_bar_habit)
         private val btnToggleCompletion: MaterialButton = itemView.findViewById(R.id.btn_toggle_completion)
@@ -78,12 +79,13 @@ class HabitsAdapter(
 
             // Progress info
             val progressPercentage = progress.getProgressPercentage(habit.targetValue)
-            tvProgressText.text = "Progress: ${progress.currentValue}/${habit.targetValue} ${habit.unit}"
+            tvProgressText.text = "${progress.currentValue}/${habit.targetValue} ${habit.unit}"
+            tvProgressPercentage.text = "$progressPercentage%"
             progressBar.progress = progressPercentage
 
-            // Streak info
+            // Streak info with fire emoji
             val streak = prefsManager.calculateHabitStreak(habit.id)
-            tvStreak.text = itemView.context.getString(R.string.habit_streak, streak)
+            tvStreak.text = "🔥 $streak days streak"
 
             // Completion button
             if (progress.isCompleted) {

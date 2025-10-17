@@ -2,10 +2,19 @@
     <string name="app_name">SoulFlow</string>
 
     <!-- Navigation -->
+    <string name="nav_home">Home</string>
     <string name="nav_habits">Habits</string>
     <string name="nav_mood">Mood</string>
     <string name="nav_hydration">Hydration</string>
     <string name="nav_settings">Settings</string>
+    
+    <!-- Home -->
+    <string name="today_habits">Today\'s Habits</string>
+    <string name="today_mood">Today\'s Mood</string>
+    <string name="today_hydration">Today\'s Hydration</string>
+    <string name="no_habits">No habits tracked today</string>
+    <string name="no_mood">No mood logged today</string>
+    <string name="no_hydration">No water logged today</string>
 
     <!-- Habits -->
     <string name="habits_title">Daily Habits</string>
@@ -122,7 +131,6 @@
 
     <!-- Intervals -->
     <string name="interval_30_min">Every 30 minutes</string>
-    <string name="interval_1_hour">Every hour</string>
     <string name="interval_2_hours">Every 2 hours</string>
     <string name="interval_3_hours">Every 3 hours</string>
     <string name="interval_4_hours">Every 4 hours</string>
@@ -130,8 +138,20 @@
     <!-- Widget -->
     <string name="widget_title">Today\'s Progress</string>
     <string name="widget_habits_completed" formatted="false">Habits completed: %d/%d</string>
+    <string name="widget_caption_complete">All done</string>
+    <string name="widget_caption_in_progress">Keep going</string>
+    <string name="widget_motivation_complete">Amazing work! 🎉</string>
+    <string name="widget_motivation_keep_going">You got this! 💪</string>
 
     <!-- About -->
     <string name="about_description">SoulFlow helps you track daily habits, monitor your mood, and stay hydrated for a healthier lifestyle.</string>
     <string name="version_info">Version 1.0</string>
+
+    <!-- ... -->
+    <string name="week_overview">Week Overview</string>
+    <string name="total_habits">Habits</string>
+    <string name="mood_entries">Moods</string>
+    <string name="day_streak">Day Streak</string>
+    <string name="daily_tip"> Daily Tip</string>
+    <string name="tip_consistency">Consistency is key! Small daily actions lead to big changes over time.</string>
 </resources>

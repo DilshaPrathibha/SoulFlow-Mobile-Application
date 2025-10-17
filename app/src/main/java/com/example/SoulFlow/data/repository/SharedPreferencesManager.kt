@@ -6,10 +6,7 @@ import com.example.SoulFlow.data.models.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-/**
- * Manager class for handling SharedPreferences operations
- * Provides methods to store and retrieve all app data
- */
+
 class SharedPreferencesManager(context: Context) {
     
     private val sharedPrefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -421,6 +418,14 @@ class SharedPreferencesManager(context: Context) {
     
     fun getUserEmail(): String {
         return sharedPrefs.getString(KEY_USER_EMAIL, "") ?: ""
+    }
+    
+    fun updateUserName(newName: String) {
+        sharedPrefs.edit().putString(KEY_USER_NAME, newName).apply()
+    }
+    
+    fun updateUserEmail(newEmail: String) {
+        sharedPrefs.edit().putString(KEY_USER_EMAIL, newEmail).apply()
     }
 
     // AUTH MANAGEMENT

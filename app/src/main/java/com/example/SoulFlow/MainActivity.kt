@@ -10,20 +10,29 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.example.SoulFlow.data.repository.SharedPreferencesManager
 import com.example.SoulFlow.receivers.HydrationAlarmScheduler
+import com.example.SoulFlow.sensors.SensorManager
 import com.example.SoulFlow.ui.auth.LoginActivity
+import com.example.SoulFlow.ui.fragments.HomeFragment
 import com.example.SoulFlow.ui.fragments.HabitsFragment
 import com.example.SoulFlow.ui.fragments.HydrationFragment
 import com.example.SoulFlow.ui.fragments.MoodFragment
 import com.example.SoulFlow.ui.fragments.SettingsFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.navigation.NavigationView
 
 class MainActivity : AppCompatActivity() {
     
     private lateinit var bottomNavigation: BottomNavigationView
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var navigationView: NavigationView
+    private lateinit var menuButton: FloatingActionButton
     private lateinit var prefsManager: SharedPreferencesManager
+    private lateinit var sensorManager: SensorManager
     
     // Permission request code
     private val PERMISSION_REQUEST_CODE = 1001
@@ -43,16 +52,25 @@ class MainActivity : AppCompatActivity() {
         
         setContentView(R.layout.activity_main)
         
-        // Initialize bottom navigation
+        // Initialize views
         bottomNavigation = findViewById(R.id.bottom_navigation)
+        drawerLayout = findViewById(R.id.drawer_layout)
+        navigationView = findViewById(R.id.navigation_view)
+        menuButton = findViewById(R.id.menu_button)
+        
+        // Setup navigation
         setupBottomNavigation()
+        setupDrawer()
         
         // Set up window insets for proper layout handling
         setupWindowInsets()
         
+        // Setup shake detection
+        setupShakeDetection()
+        
         // Load default fragment
         if (savedInstanceState == null) {
-            loadFragment(HabitsFragment())
+            loadFragment(HomeFragment())
         }
         
         // Check and request notification permissions on app start
@@ -72,27 +90,129 @@ class MainActivity : AppCompatActivity() {
     
     override fun onResume() {
         super.onResume()
+        sensorManager.startListening()
     }
     
     override fun onPause() {
         super.onPause()
+        sensorManager.stopListening()
     }
     
     private fun setupBottomNavigation() {
         bottomNavigation.setOnItemSelectedListener { item ->
             val fragment = when (item.itemId) {
+                R.id.nav_home -> HomeFragment()
                 R.id.nav_habits -> HabitsFragment()
                 R.id.nav_mood -> MoodFragment()
                 R.id.nav_hydration -> HydrationFragment()
-                R.id.nav_settings -> SettingsFragment()
-                else -> HabitsFragment()
+                else -> HomeFragment()
             }
             loadFragment(fragment)
             true
         }
         
         // Set the default selected item
-        bottomNavigation.selectedItemId = R.id.nav_habits
+        bottomNavigation.selectedItemId = R.id.nav_home
+    }
+    
+    private fun setupDrawer() {
+        // Setup menu button to open drawer
+        menuButton.setOnClickListener {
+            drawerLayout.open()
+        }
+        
+        // Set logout item icon color to red
+        val logoutItem = navigationView.menu.findItem(R.id.nav_logout)
+        logoutItem?.let {
+            it.icon?.setTint(ContextCompat.getColor(this, R.color.error_red))
+        }
+        
+        // Setup navigation view item selection
+        navigationView.setNavigationItemSelectedListener { item ->
+            when (item.itemId) {
+                // Main Navigation
+                R.id.nav_drawer_home -> {
+                    bottomNavigation.selectedItemId = R.id.nav_home
+                    loadFragment(HomeFragment())
+                }
+                R.id.nav_drawer_habits -> {
+                    bottomNavigation.selectedItemId = R.id.nav_habits
+                    loadFragment(HabitsFragment())
+                }
+                R.id.nav_drawer_mood -> {
+                    bottomNavigation.selectedItemId = R.id.nav_mood
+                    loadFragment(MoodFragment())
+                }
+                R.id.nav_drawer_hydration -> {
+                    bottomNavigation.selectedItemId = R.id.nav_hydration
+                    loadFragment(HydrationFragment())
+                }
+                
+                // Settings & Preferences
+                R.id.nav_settings -> {
+                    loadFragment(SettingsFragment())
+                    // Unselect all bottom navigation items
+                    bottomNavigation.menu.findItem(bottomNavigation.selectedItemId)?.isChecked = false
+                }
+                
+                // Information & Help
+                R.id.nav_about -> {
+                    showAboutDialog()
+                }
+                R.id.nav_share -> {
+                    shareApp()
+                }
+                
+                // Account
+                R.id.nav_logout -> {
+                    showLogoutConfirmation()
+                }
+            }
+            drawerLayout.close()
+            true
+        }
+    }
+    
+    private fun showAboutDialog() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle(getString(R.string.about))
+            .setMessage(getString(R.string.about_description))
+            .setPositiveButton("OK", null)
+            .show()
+    }
+    
+    private fun shareApp() {
+        val shareIntent = Intent(Intent.ACTION_SEND).apply {
+            type = "text/plain"
+            putExtra(Intent.EXTRA_SUBJECT, "Check out SoulFlow!")
+            putExtra(
+                Intent.EXTRA_TEXT,
+                "Track your wellness journey with SoulFlow - Habits, Mood & Hydration tracker!\n\nDownload now: https://play.google.com/store/"
+            )
+        }
+        startActivity(Intent.createChooser(shareIntent, "Share SoulFlow via"))
+    }
+    
+    private fun showLogoutConfirmation() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle("Logout")
+            .setMessage("Are you sure you want to logout?")
+            .setPositiveButton("Logout") { _, _ ->
+                logout()
+            }
+            .setNegativeButton("Cancel", null)
+            .show()
+    }
+    
+    private fun logout() {
+        // Clear user login status
+        prefsManager.setUserLoggedIn(false)
+        
+        // Navigate to login screen
+        val intent = Intent(this, LoginActivity::class.java)
+        intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+        startActivity(intent)
+        finish()
     }
     
     private fun setupWindowInsets() {
@@ -100,6 +220,17 @@ class MainActivity : AppCompatActivity() {
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
+        }
+    }
+    
+    private fun setupShakeDetection() {
+        sensorManager = SensorManager(this)
+        sensorManager.setOnShakeDetectedListener {
+            // Navigate to mood page when shake is detected
+            runOnUiThread {
+                bottomNavigation.selectedItemId = R.id.nav_mood
+                loadFragment(MoodFragment())
+            }
         }
     }
     
@@ -216,8 +347,8 @@ class MainActivity : AppCompatActivity() {
                 }
             }
             else -> {
-                // Default to habits fragment
-                loadFragment(HabitsFragment())
+                // Default to home fragment
+                loadFragment(HomeFragment())
             }
         }
     }

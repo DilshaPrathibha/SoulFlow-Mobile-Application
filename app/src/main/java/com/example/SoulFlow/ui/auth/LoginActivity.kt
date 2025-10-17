@@ -111,5 +111,5 @@ class LoginActivity : AppCompatActivity() {
         return isValid
     }
     
-    // Removed simulateLogin; now validating against stored credentials
+
 }

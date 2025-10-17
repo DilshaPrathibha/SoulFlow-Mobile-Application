@@ -38,9 +38,10 @@
     <!-- Card Colors -->
     <color name="card_background">#FFFFFFFF</color>
     <color name="card_habit">#FFE8EAFF</color>
-    <color name="card_mood">#FFFECDD3</color>
-    <color name="card_hydration">#FFD1FAE5</color>
+    <color name="card_mood">#FFE0E7FF</color>
+    <color name="card_hydration">#FFD8E4FF</color>
     <color name="card_settings">#FFF0F1FF</color>
+    <color name="card_stats">#FFF5F3FF</color>
     
     <!-- Mood Colors (Modernized) -->
     <color name="mood_very_happy">#FFFFEB3B</color>
@@ -80,4 +81,9 @@
     <color name="switch_thumb_unchecked">#FFCCCCCC</color>
     <color name="switch_track_checked">#FFE8EAFF</color>
     <color name="switch_track_unchecked">#FFEEEEEE</color>
+    
+    <!-- Water Tank Colors -->
+    <color name="water_gradient_start">#FF0EA5E9</color>
+    <color name="water_gradient_end">#FF6366F1</color>
+    <color name="water_tank_border">#FFBDBDBD</color>
 </resources>

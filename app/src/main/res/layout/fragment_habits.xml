@@ -28,90 +28,174 @@
                 android:paddingEnd="@dimen/spacing_large"
                 app:title="@string/habits_title"
                 app:titleTextAppearance="@style/TextAppearance.Material3.HeadlineSmall"
-                app:titleTextColor="@color/text_primary" />
+                app:titleTextColor="@color/text_primary"
+                app:titleCentered="true" />
 
         </com.google.android.material.appbar.AppBarLayout>
 
-        <!-- Progress Summary Card -->
+        <!-- Progress Summary Card with Circular Design -->
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="@dimen/spacing_large"
             android:layout_marginTop="@dimen/spacing_large"
             android:layout_marginBottom="@dimen/spacing_medium"
-            app:cardCornerRadius="@dimen/card_corner_radius_large"
-            app:cardElevation="@dimen/card_elevation_medium"
-            app:cardBackgroundColor="@color/card_habit"
+            app:cardCornerRadius="24dp"
+            app:cardElevation="12dp"
+            app:cardBackgroundColor="@color/primary"
             app:strokeWidth="0dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:padding="@dimen/spacing_large">
+                android:padding="24dp">
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/today_progress"
-                    android:textColor="@color/text_primary"
-                    android:textSize="@dimen/text_size_headline_small"
-                    android:textStyle="bold" />
+                <!-- Circular Progress Indicator -->
+                <FrameLayout
+                    android:id="@+id/frame_daily_progress"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true">
 
-                <TextView
-                    android:id="@+id/tv_progress_summary"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_small"
-                    android:text="0 of 0 habits completed"
-                    android:textColor="@color/text_secondary"
-                    android:textSize="@dimen/text_size_body_medium"
-                    tools:text="3 of 5 habits completed" />
+                    <com.google.android.material.progressindicator.CircularProgressIndicator
+                        android:id="@+id/progress_bar_daily"
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_gravity="center"
+                        android:progress="60"
+                        app:indicatorSize="120dp"
+                        app:trackThickness="12dp"
+                        app:indicatorColor="@color/white"
+                        app:trackColor="@color/progress_incomplete"
+                        app:trackCornerRadius="6dp" />
 
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/progress_bar_daily"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:orientation="vertical"
+                        android:gravity="center">
+
+                        <TextView
+                            android:id="@+id/tv_progress_percentage"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/white"
+                            android:textSize="28sp"
+                            android:textStyle="bold"
+                            tools:text="60%" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Complete"
+                            android:textColor="@color/white"
+                            android:textSize="12sp"
+                            android:alpha="0.9" />
+
+                    </LinearLayout>
+
+                </FrameLayout>
+
+                <!-- Progress Info -->
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/spacing_medium"
-                    android:progress="60"
-                    app:trackCornerRadius="4dp"
-                    app:trackThickness="8dp"
-                    app:indicatorColor="@color/progress_complete"
-                    app:trackColor="@color/progress_incomplete" />
+                    android:layout_toEndOf="@id/frame_daily_progress"
+                    android:layout_marginStart="20dp"
+                    android:layout_centerVertical="true"
+                    android:orientation="vertical">
 
-            </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/today_progress"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_progress_summary"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="0 of 0 habits completed"
+                        android:textColor="@color/white"
+                        android:textSize="15sp"
+                        android:alpha="0.95"
+                        tools:text="3 of 5 habits completed" />
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp"
+                        app:cardBackgroundColor="@color/white">
+
+                        <TextView
+                            android:id="@+id/tv_motivation_text"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingHorizontal="16dp"
+                            android:paddingVertical="6dp"
+                            android:text="Keep going! 💪"
+                            android:textColor="@color/primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </com.google.android.material.card.MaterialCardView>
 
-        <!-- Habits List Header -->
-        <LinearLayout
+        <!-- Habits List Header with Badge -->
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/spacing_medium"
+            android:layout_marginTop="@dimen/spacing_large"
             android:layout_marginHorizontal="@dimen/spacing_large"
-            android:layout_marginBottom="@dimen/spacing_small"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
+            android:layout_marginBottom="@dimen/spacing_small">
 
             <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Your Habits"
-                android:textColor="@color/text_primary"
-                android:textSize="@dimen/text_size_headline_small"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_habit_count"
+                android:id="@+id/tv_your_habits_label"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0 habits"
-                android:textColor="@color/text_secondary"
-                android:textSize="@dimen/text_size_body_medium"
-                tools:text="5 habits" />
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="Your Habits"
+                android:textColor="@color/text_primary"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-        </LinearLayout>
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="@color/accent_purple">
+
+                <TextView
+                    android:id="@+id/tv_habit_count"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingHorizontal="16dp"
+                    android:paddingVertical="6dp"
+                    android:text="0"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="5" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+        </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recycler_habits"
@@ -138,16 +222,16 @@
             <com.google.android.material.card.MaterialCardView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:cardCornerRadius="24dp"
-                app:cardElevation="0dp"
-                app:cardBackgroundColor="@color/card_habit">
+                app:cardCornerRadius="32dp"
+                app:cardElevation="8dp"
+                app:cardBackgroundColor="@color/primary">
 
                 <ImageView
-                    android:layout_width="96dp"
-                    android:layout_height="96dp"
-                    android:padding="@dimen/spacing_large"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:padding="24dp"
                     android:src="@drawable/ic_habits"
-                    app:tint="@color/primary" />
+                    app:tint="@color/white" />
 
             </com.google.android.material.card.MaterialCardView>
 
@@ -173,7 +257,7 @@
 
     </LinearLayout>
 
-    <!-- Floating Action Button -->
+    <!-- Floating Action Button with Enhanced Style -->
     <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fab_add_habit"
         android:layout_width="wrap_content"
@@ -182,10 +266,13 @@
         android:layout_margin="@dimen/spacing_large"
         android:contentDescription="@string/add_habit"
         android:text="@string/add_habit"
-        android:textColor="@color/on_primary"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="15sp"
         app:backgroundTint="@color/primary"
         app:icon="@drawable/ic_add"
-        app:iconTint="@color/on_primary"
-        app:elevation="@dimen/card_elevation_large" />
+        app:iconTint="@color/white"
+        app:elevation="12dp"
+        app:cornerRadius="28dp" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
