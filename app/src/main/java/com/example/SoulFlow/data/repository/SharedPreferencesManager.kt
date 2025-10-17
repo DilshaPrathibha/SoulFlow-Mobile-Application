@@ -6,10 +6,7 @@ import com.example.SoulFlow.data.models.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-/**
- * Manager class for handling SharedPreferences operations
- * Provides methods to store and retrieve all app data
- */
+
 class SharedPreferencesManager(context: Context) {
     
     private val sharedPrefs: SharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
