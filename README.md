@@ -1,7 +1,7 @@
 # SoulFlow - Wellness Tracking Mobile App
 
 <div align="center">
-  <img src="images/Thumbnail%20SoulFlow%20–%20Wellness%20Tracking%20Android%20Application.png" alt="SoulFlow App" width="300">
+  <img src="images/Thumbnail%20SoulFlow%20–%20Wellness%20Tracking%20Android%20Application.png" alt="SoulFlow App" width="1000">
 </div>
 
 A holistic wellness application that helps you track and improve your mental health, habits, and physical wellness all in one place.
